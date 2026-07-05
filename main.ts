@@ -74,3 +74,28 @@ class Student {
 
 }
 
+// 2-task
+class BankAccount {
+
+    private balance: number
+    public owner: string
+    constructor(balance: number, owner: string) {
+        this.balance = balance
+        this.owner = owner
+    }
+
+    deposit(amount: number): void {
+        this.balance += amount
+    }
+
+    withdraw(amount: number): void {
+        if (this.balance >= amount) {
+            this.balance -= amount
+        }
+        else {
+            console.log("mablag' yetarli emas")
+        }
+    }
+
+
+}
