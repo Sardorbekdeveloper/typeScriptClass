@@ -99,3 +99,20 @@ class BankAccount {
 
 
 }
+
+class UserAccount {
+    userName: string
+    private password: string
+    constructor(userName: string, password: string) {
+        this.userName = userName
+        this.password = password
+    }
+    changePassword(newPassword: string): void {
+        this.password = newPassword
+    }
+    protected isActive(): boolean {
+        return this.password.length > 0
+    }
+
+}
+
