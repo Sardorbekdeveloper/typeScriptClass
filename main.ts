@@ -49,7 +49,7 @@ class Person {
     }
 
     sayHello() {
-        console.log('hello, + my name is' + this.firstname + this.lastname)
+        console.log('hello, my name is ' + this.firstname + " " + this.lastname)
     }
 }
 
@@ -66,7 +66,7 @@ class Student {
         this.grade = grade
     }
     fullName(): string {
-        return (`${this.firstName}, ' ', ${this.lastName}`)
+        return (`${this.firstName},  ${this.lastName}`)
     }
     updateGrade(newGrade: number): void {
         this.grade = newGrade
@@ -116,3 +116,103 @@ class UserAccount {
 
 }
 
+// 3.1 Animal interface ni yaratish
+interface Animal {
+    name: string
+    age: number
+
+    speak(): void
+}
+
+class Dog implements Animal {
+    name: string
+    age: number
+
+    constructor(name: string, age: number) {
+        this.name = name
+        this.age = age
+    }
+
+    speak(): void {
+        console.log(`${this.name} says: Woof!`)
+    }
+}
+
+class Cat implements Animal {
+    name: string
+    age: number
+
+    constructor(name: string, age: number) {
+        this.name = name
+        this.age = age
+    }
+
+    speak(): void {
+        console.log(`${this.name} says: Meow!`)
+    }
+}
+
+const dog = new Dog("Rex", 3)
+dog.speak()
+
+const cat = new Cat("Mimi", 2)
+cat.speak()
+
+
+// 3.2 task Ijara tizimi un interface yaratish
+interface RentalItem {
+    id: number
+    name: string
+    pricePerDay: number
+
+    rentItem(): void
+    returnItem(): void
+}
+
+class CarRental implements RentalItem {
+    id: number
+    name: string
+    pricePerDay: number
+
+    constructor(id: number, name: string, pricePerDay: number) {
+        this.id = id
+        this.name = name
+        this.pricePerDay = pricePerDay
+    }
+
+    rentItem(): void {
+        console.log(`${this.name} has been rented.`)
+    }
+
+    returnItem(): void {
+        console.log(`${this.name} has been returned.`)
+    }
+}
+
+class HouseRental implements RentalItem {
+    id: number
+    name: string
+    pricePerDay: number
+
+    constructor(id: number, name: string, pricePerDay: number) {
+        this.id = id
+        this.name = name
+        this.pricePerDay = pricePerDay
+    }
+
+    rentItem(): void {
+        console.log(`${this.name} has been rented.`)
+    }
+
+    returnItem(): void {
+        console.log(`${this.name} has been returned.`)
+    }
+}
+
+const car = new CarRental(1, "BMW M5", 250)
+car.rentItem()
+car.returnItem()
+
+const house = new HouseRental(2, "Luxury Villa", 500)
+house.rentItem()
+house.returnItem()
