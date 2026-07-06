@@ -216,3 +216,103 @@ car.returnItem()
 const house = new HouseRental(2, "Luxury Villa", 500)
 house.rentItem()
 house.returnItem()
+
+// 4.1 task
+abstract class Calculator {
+
+    abstract add(a: number, b: number): number
+
+    abstract subtract(a: number, b: number): number
+
+    abstract multiply(a: number, b: number): number
+
+}
+
+class SimpleCalculator extends Calculator {
+
+    add(a: number, b: number): number {
+        return a + b
+    }
+
+    subtract(a: number, b: number): number {
+        return a - b
+    }
+
+    multiply(a: number, b: number): number {
+        return a * b
+    }
+
+}
+
+const calc = new SimpleCalculator()
+
+console.log(calc.add(10, 5))
+console.log(calc.subtract(10, 5))
+console.log(calc.multiply(10, 5))
+
+// 4.2 task
+abstract class Shape {
+
+    name: string
+
+    constructor(name: string) {
+        this.name = name
+    }
+
+    abstract getArea(): number
+
+    abstract getPerimeter(): number
+
+}
+
+class Circle extends Shape {
+
+    radius: number
+
+    constructor(name: string, radius: number) {
+        super(name)
+        this.radius = radius
+    }
+
+    getArea(): number {
+        return Math.PI * this.radius * this.radius
+    }
+
+    getPerimeter(): number {
+        return 2 * Math.PI * this.radius
+    }
+
+}
+
+class Rectangle extends Shape {
+
+    width: number
+    height: number
+
+    constructor(name: string, width: number, height: number) {
+        super(name)
+        this.width = width
+        this.height = height
+    }
+
+    getArea(): number {
+        return this.width * this.height
+    }
+
+    getPerimeter(): number {
+        return 2 * (this.width + this.height)
+    }
+
+}
+
+const circle = new Circle("Circle", 5)
+
+console.log(circle.name)
+console.log(circle.getArea())
+console.log(circle.getPerimeter())
+
+const rectangle = new Rectangle("Rectangle", 8, 4)
+
+console.log(rectangle.name)
+console.log(rectangle.getArea())
+console.log(rectangle.getPerimeter())
